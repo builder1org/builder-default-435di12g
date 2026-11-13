@@ -1,7 +1,17 @@
+import { BenefitsSection } from "@/components/sections/benefits-section";
+import { CategoriesSection } from "@/components/sections/categories-section";
+import { CtaSection } from "@/components/sections/cta-section";
+import { FeaturedProductsSection } from "@/components/sections/featured-products-section";
+import { HeroSection } from "@/components/sections/hero-section";
+
 export default function Home() {
   return (
-    <main className="mx-auto max-w-3xl px-6 py-16">
-      <p className="text-muted-foreground text-sm">Starter shell — pages and design are added by the agent.</p>
-    </main>
+    <>
+      <HeroSection />
+      <CategoriesSection />
+      <FeaturedProductsSection />
+      <BenefitsSection />
+      <CtaSection />
+    </>
   );
 }

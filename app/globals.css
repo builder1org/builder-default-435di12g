@@ -4,50 +4,52 @@
 @custom-variant dark (&:is(.dark *));
 
 :root {
-  --background: oklch(1 0 0);
-  --foreground: oklch(0.145 0 0);
-  --card: oklch(1 0 0);
-  --card-foreground: oklch(0.145 0 0);
-  --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.145 0 0);
-  --primary: oklch(0.205 0 0);
-  --primary-foreground: oklch(0.985 0 0);
-  --secondary: oklch(0.97 0 0);
-  --secondary-foreground: oklch(0.205 0 0);
-  --muted: oklch(0.97 0 0);
-  --muted-foreground: oklch(0.556 0 0);
-  --accent: oklch(0.97 0 0);
-  --accent-foreground: oklch(0.205 0 0);
+  --background: oklch(0.98 0.012 45);
+  --foreground: oklch(0.28 0.04 350);
+  --card: oklch(0.995 0.008 50);
+  --card-foreground: oklch(0.28 0.04 350);
+  --popover: oklch(0.995 0.008 50);
+  --popover-foreground: oklch(0.28 0.04 350);
+  --primary: oklch(0.52 0.14 5);
+  --primary-foreground: oklch(0.99 0.01 50);
+  --secondary: oklch(0.94 0.03 350);
+  --secondary-foreground: oklch(0.32 0.06 350);
+  --muted: oklch(0.95 0.018 20);
+  --muted-foreground: oklch(0.48 0.04 350);
+  --accent: oklch(0.78 0.09 75);
+  --accent-foreground: oklch(0.28 0.05 350);
   --destructive: oklch(0.577 0.245 27.325);
   --destructive-foreground: oklch(0.985 0 0);
-  --border: oklch(0.922 0 0);
-  --input: oklch(0.922 0 0);
-  --ring: oklch(0.708 0 0);
-  --radius: 0.625rem;
+  --border: oklch(0.9 0.02 20);
+  --input: oklch(0.9 0.02 20);
+  --ring: oklch(0.58 0.12 5);
+  --radius: 0.75rem;
   --surface: var(--card);
   --surface-muted: var(--muted);
+  --hero-glow: oklch(0.88 0.08 15 / 0.45);
+  --hero-glow-2: oklch(0.9 0.06 350 / 0.35);
 }
 
 .dark {
-  --background: oklch(0.145 0 0);
-  --foreground: oklch(0.985 0 0);
-  --card: oklch(0.205 0 0);
-  --card-foreground: oklch(0.985 0 0);
-  --popover: oklch(0.205 0 0);
-  --popover-foreground: oklch(0.985 0 0);
-  --primary: oklch(0.922 0 0);
-  --primary-foreground: oklch(0.205 0 0);
-  --secondary: oklch(0.269 0 0);
-  --secondary-foreground: oklch(0.985 0 0);
-  --muted: oklch(0.269 0 0);
-  --muted-foreground: oklch(0.708 0 0);
-  --accent: oklch(0.269 0 0);
-  --accent-foreground: oklch(0.985 0 0);
+  --background: oklch(0.18 0.03 350);
+  --foreground: oklch(0.96 0.01 50);
+  --card: oklch(0.22 0.035 350);
+  --card-foreground: oklch(0.96 0.01 50);
+  --popover: oklch(0.22 0.035 350);
+  --popover-foreground: oklch(0.96 0.01 50);
+  --primary: oklch(0.72 0.12 5);
+  --primary-foreground: oklch(0.2 0.04 350);
+  --secondary: oklch(0.28 0.04 350);
+  --secondary-foreground: oklch(0.96 0.01 50);
+  --muted: oklch(0.26 0.03 350);
+  --muted-foreground: oklch(0.72 0.03 350);
+  --accent: oklch(0.55 0.08 75);
+  --accent-foreground: oklch(0.96 0.01 50);
   --destructive: oklch(0.704 0.191 22.216);
   --destructive-foreground: oklch(0.985 0 0);
-  --border: oklch(1 0 0 / 10%);
+  --border: oklch(1 0 0 / 12%);
   --input: oklch(1 0 0 / 15%);
-  --ring: oklch(0.556 0 0);
+  --ring: oklch(0.65 0.1 5);
   --surface: var(--card);
   --surface-muted: var(--muted);
 }
@@ -76,6 +78,8 @@
   --radius-md: calc(var(--radius) - 2px);
   --radius-lg: var(--radius);
   --radius-xl: calc(var(--radius) + 4px);
+  --font-sans: var(--font-vazirmatn), ui-sans-serif, system-ui, sans-serif;
+  --font-display: var(--font-playfair), ui-serif, Georgia, serif;
 }
 
 @layer base {
@@ -84,5 +88,40 @@
   }
   body {
     @apply bg-background text-foreground antialiased;
+  }
+  h1,
+  h2,
+  h3 {
+    font-family: var(--font-display), var(--font-vazirmatn), serif;
+    @apply tracking-tight;
+  }
+}
+
+@layer utilities {
+  .font-display {
+    font-family: var(--font-display), var(--font-vazirmatn), serif;
+  }
+  .text-balance {
+    text-wrap: balance;
+  }
+  .hero-mesh {
+    background:
+      radial-gradient(ellipse 80% 60% at 85% 20%, var(--hero-glow), transparent 55%),
+      radial-gradient(ellipse 70% 50% at 10% 80%, var(--hero-glow-2), transparent 50%);
+  }
+  .product-placeholder-lip {
+    background: linear-gradient(135deg, oklch(0.72 0.16 5), oklch(0.85 0.08 350));
+  }
+  .product-placeholder-face {
+    background: linear-gradient(135deg, oklch(0.82 0.07 55), oklch(0.75 0.1 25));
+  }
+  .product-placeholder-eyes {
+    background: linear-gradient(135deg, oklch(0.55 0.08 280), oklch(0.78 0.06 350));
+  }
+  .product-placeholder-skincare {
+    background: linear-gradient(135deg, oklch(0.88 0.05 160), oklch(0.92 0.04 90));
+  }
+  .product-placeholder-tools {
+    background: linear-gradient(135deg, oklch(0.7 0.04 350), oklch(0.85 0.06 75));
   }
 }
